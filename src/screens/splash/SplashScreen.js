@@ -1,10 +1,9 @@
 import React,{ useEffect, useState } from "react";
-import { SafeAreaView, StyleSheet,ActivityIndicator,StatusBar } from "react-native";
+import { SafeAreaView, StyleSheet,StatusBar } from "react-native";
 import { WebView } from "react-native-webview";
 import { useNavigation } from "@react-navigation/native"; // Import navigation hook from React Navigation
 
 const Splash = () => {
-  const [loading, setLoading] = useState(true);
   const navigation = useNavigation(); // Initialize navigation
 
   useEffect(() => {
@@ -18,9 +17,6 @@ const Splash = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      {loading && (
-        <ActivityIndicator style={styles.loader} color="#000" size="large" />
-      )}
 
       <StatusBar backgroundColor="#ffffff" barStyle="dark-content" />
 

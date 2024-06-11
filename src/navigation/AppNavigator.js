@@ -9,12 +9,12 @@ const Stack = createStackNavigator();
 
 const AppNavigator = () => {
   return (
-    <Stack.Navigator initialRouteName="Signin">
+    <Stack.Navigator initialRouteName="Splash">
       <Stack.Screen name="Splash" component={SplashScreen}     options={{ headerShown: false }} />
       <Stack.Screen name="Onboarding" component={OnboardingScreen}    options={{ headerShown: false }} />
       <Stack.Screen name="Signin" component={SigninScreen} options={{ headerShown: false }}/>
-      <Stack.Screen name="Register" component={RegisterScreen} options={{ headerShown: false }} />
-      <Stack.Screen name="OTP" component={OtpScreen} options={{ headerShown: false }} />
+      {/* <Stack.Screen name="Register" component={RegisterScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="OTP" component={OtpScreen} options={{ headerShown: false }} /> */}
     </Stack.Navigator>
   );
 };
