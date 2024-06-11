@@ -1,10 +1,10 @@
 /* Start Global Rules */
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap')
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap");
 :root {
   --black-color: #000;
   --white-color: #fff;
   --golden-brown: #9d8050;
-  --light-gray: #F9F9F9;
+  --light-gray: #f9f9f9;
   --dark-blue: #053356;
 }
 
@@ -20,13 +20,34 @@ body {
   box-sizing: border-box !important;
   font-family: "Cairo", sans-serif;
 }
-.next-btn{
-background-color: var(--dark-blue) !important;
-color: var(--white-color);
-width: 40%;
+.splash {
+  position: relative;
 }
-.skip-btn{
+.img-top-splash {
+  height: 200px;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  object-fit: cover;
+}
+
+.img-bottom-splash {
+  height: 200px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  object-fit: cover;
+}
+.next-btn {
+  background-color: var(--dark-blue) !important;
+  color: var(--white-color);
+  width: 40%;
+}
+.skip-btn {
   background-color: var(--light-gray);
+  width: 40%;
 }
 
 .dots-container {

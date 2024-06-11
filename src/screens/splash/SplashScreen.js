@@ -8,9 +8,8 @@ const Splash = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setLoading(false);
       navigation.navigate("Onboarding"); // Navigate to the onboarding screen after 2 seconds
-    }, 2000); // Set the timeout duration in milliseconds
+    }, 3000); // Set the timeout duration in milliseconds
 
     return () => clearTimeout(timer); // Cleanup the timer on component unmount
   }, [navigation]); // Add navigation to the dependency array
