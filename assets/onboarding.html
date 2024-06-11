@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- CSS files -->
+    <link rel="stylesheet" href="./css/all.min.css" />
+    <link rel="stylesheet" href="./css/bootstrap.rtl.min.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <title>Mehan</title>
+  </head>
+  <body>
+    <div class="container-fluid vh-100 d-flex flex-column justify-content-center align-items-center">
+      <div id="screen1" class="onboarding-screen text-center">
+        <img src="./images/onboarding/img1.png" class="img-fluid mb-3" alt="Screen 1">
+        <div class="dots-container">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+        <h2>اهلا بكم في عالم الراحة مع مهن !</h2>
+        <p>احصل على عامل منزلي بجرات كيل</p>
+        <button class="btn next-btn" id="next1">التالي</button>
+        <button class="btn skip-btn" id="skip1">تخطي</button>
+      </div>
+      <div id="screen2" class="onboarding-screen text-center d-none">
+        <img src="./images/onboarding/img2.png" class="img-fluid mb-3" alt="Screen 2">
+        <div class="dots-container">
+          <span class="dot"></span>
+          <span class="dot active"></span>
+          <span class="dot"></span>
+        </div>
+        <h2>استمتع بتجربة سلسة وامنة!</h2>
+        <p>احصل على عامل منزلي بجرات كيل</p>
+        <button class="btn next-btn" id="next2">التالي</button>
+        <button class="btn skip-btn" id="skip2">تخطي</button>
+      </div>
+      <div id="screen3" class="onboarding-screen text-center d-none">
+        <img src="./images/onboarding/img3.png" class="img-fluid mb-3" alt="Screen 3">
+        <div class="dots-container">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot active"></span>
+        </div>
+        <h2>ابحث عن عامل المنزل المناسب لك!</h2>
+        <p>احصل على عامل منزلي بجرات كيل</p>
+        <button class="btn next-btn" id="start">دخول التطبيق</button>
+      </div>
+    </div>
+    <script>
+  document.addEventListener('DOMContentLoaded', function () {
+  const screens = document.querySelectorAll('.onboarding-screen');
+  const dotsContainers = document.querySelectorAll('.dots-container');
+  const dots = document.querySelectorAll('.dot');
+  let currentScreenIndex = 0;
+
+  function showScreen(index) {
+    screens.forEach((screen, idx) => {
+      if (idx === index) {
+        screen.classList.remove('d-none');
+      } else {
+        screen.classList.add('d-none');
+      }
+    });
+  }
+
+  function setActiveDot(container, index) {
+    const dots = container.querySelectorAll('.dot');
+    dots.forEach((dot, idx) => {
+      if (idx === index) {
+        dot.classList.add('active');
+      } else {
+        dot.classList.remove('active');
+      }
+    });
+  }
+
+  function nextScreen() {
+    if (currentScreenIndex < screens.length - 1) {
+      currentScreenIndex++;
+      showScreen(currentScreenIndex);
+      setActiveDot(dotsContainers[currentScreenIndex], currentScreenIndex);
+    }
+  }
+
+  function skipScreens() {
+    showScreen(screens.length - 1); // Show the last screen
+    setActiveDot(dotsContainers[screens.length - 1], screens.length - 1); // Set the last dots as active
+  }
+
+  dotsContainers.forEach((container, index) => {
+    container.addEventListener('click', () => {
+      currentScreenIndex = index;
+      showScreen(currentScreenIndex);
+      setActiveDot(container, currentScreenIndex);
+    });
+  });
+
+  document.getElementById('next1').addEventListener('click', nextScreen);
+  document.getElementById('next2').addEventListener('click', nextScreen);
+  document.getElementById('start').addEventListener('click', skipScreens);
+  document.getElementById('skip1').addEventListener('click', skipScreens);
+  document.getElementById('skip2').addEventListener('click', skipScreens);
+
+  // Initialize the first screen and dots as active
+  showScreen(currentScreenIndex);
+  setActiveDot(dotsContainers[currentScreenIndex], currentScreenIndex);
+});
+document.getElementById('start').addEventListener('click', function () {
+  // Navigate to the "Signin" screen
+  window.ReactNativeWebView.postMessage('navigateToSignin');
+});
+  </script>
+    <script src="./js/all.min.js"></script>
+    <script src="./js/bootstrap.bundle.js"></script>
+    <script src="./js/main.js"></script>
+  </body>
+</html>

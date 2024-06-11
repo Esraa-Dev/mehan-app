@@ -1,0 +1,49 @@
+/* Start Global Rules */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap')
+:root {
+  --black-color: #000;
+  --white-color: #fff;
+  --golden-brown: #9d8050;
+  --light-gray: #F9F9F9;
+  --dark-blue: #053356;
+}
+
+html {
+  direction: rtl;
+}
+
+body {
+  background-color: var(--white-color);
+}
+
+* {
+  box-sizing: border-box !important;
+  font-family: "Cairo", sans-serif;
+}
+.next-btn{
+background-color: var(--dark-blue) !important;
+color: var(--white-color);
+width: 40%;
+}
+.skip-btn{
+  background-color: var(--light-gray);
+}
+
+.dots-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: #ccc;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: #333;
+}
